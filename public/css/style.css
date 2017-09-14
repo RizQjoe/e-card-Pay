@@ -1,0 +1,74 @@
+body {
+  padding-top: 4em;
+}
+
+.card {
+  margin-bottom: 1em;
+}
+
+.card a {
+  float: right;  
+}
+
+.card-title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  max-height: 1em;
+  margin-bottom: 1.5em;
+    overflow: visible;
+}
+
+h1#page-header {
+  font-size: 3em;
+}
+
+#page-header #title {
+  float: left;
+}
+
+#page-header #buttons {
+  float: right;
+}
+
+#left-section {
+  max-height: 40em;
+  overflow: scroll;
+}
+
+#right-section {
+  max-height: 40em;
+  overflow: scroll;
+}
+
+#right-section #check-out span {
+  float: left;
+}
+
+#right-section #check-out {
+  margin-top: 1em;
+  color: white;
+}
+
+#right-section #check-out{
+  float: right;
+}
+
+#item #item-name {
+  float: left;
+}
+
+#item #item-total {
+  float: right;
+}
+
+#item #total-label {
+  float: left;  
+  font-weight: bold;
+}
+
+#item #total-number {
+  float: right; 
+  font-weight: bolder; 
+}
+
