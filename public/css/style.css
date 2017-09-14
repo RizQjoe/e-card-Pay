@@ -72,3 +72,33 @@ h1#page-header {
   font-weight: bolder; 
 }
 
+div#top-up {
+  text-align: center;
+}
+
+div#top-up h2 {
+  margin-top: 1em;  
+  margin-bottom: 1em;
+}
+
+div#top-up button {
+  margin-top: 1em;  
+}
+
+input#top-up {
+  text-align: center;
+  height: 2em;
+  font-size: 2em;
+  width: 50%;
+  margin: auto;  
+}
+
+input#add-member {
+  width: 60%;
+  margin:auto;
+  font-size: 1.2em;
+}
+
+
+
+
