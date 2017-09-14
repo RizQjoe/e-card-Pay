@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> contacts </title>
+    </head>
+
+    <body>
+        <h1>Halaman Customer</h1>
+        <a href="/">Back to Home</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% dataCustomer.forEach( row => { %>
+                <tr>
+                    <td><%=row.name%></td>
+                    <td><%=row.email%></td>
+
+                    <td>
+                        <a href="/customer/edit/<%=row.id%>">Edit</a>
+                        <a href="/customer/delete/<%=row.id%>"onclick="return confirm (' Delete this ?? ')">Delete</a>
+                    </td>
+                </tr>
+                <% })%>
+            </tbody>
+        </table>
+        <form class="" action="/customer/add" method="POST">
+            <input type="text" name="name" placeholder="Name"> <br>
+            <input type="text" name="email" placeholder="Email"><br>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

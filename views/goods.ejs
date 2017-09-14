@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> contacts </title>
+    </head>
+
+    <body>
+        <h1>halaman Goods </h1>
+        <a href="/">Back to Home</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>stock</th>
+                    <th>image</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <% {data.forEach( d => { %>
+                <tr>
+                    <td><%=d.name%></td>
+                    <td><%=d.price%></td>
+                    <td><%=d.stock%></td>
+                    <td><%=d.img_link%></td>
+
+
+                    <td>
+                        <a href="/goods/edit/<%=d.id%>">Edit</a>
+                        <a href="/goods/delete/<%=d.id%>"onclick="return confirm (' Delete this ?? ')">Delete</a>
+
+                    </td>
+                </tr>
+                <% })}%>
+            </tbody>
+        </table>
+        <form class="" action="/goods/add" method="POST">
+            <input type="text" name="name" placeholder="Name"> <br>
+            <input type="text" name="price" placeholder="Price"><br>
+            <input type="text" name="stock" placeholder="Stock"><br>
+            <input type="text" name="img_link" placeholder="image">
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
