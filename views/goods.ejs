@@ -41,12 +41,7 @@
               <input type="text" name="price" placeholder="Good's Price" class="form-control" required>
             </div>
 
-            <div class="form-group">
-              <label>
-                Stock
-              </label>
-              <input type="text" name="stock" placeholder="Good's Initial Stock" class="form-control" required>
-            </div>
+            <input type="hidden" name="stock" placeholder="Good's Initial Stock" class="form-control" value="1000" required>
 
             <div class="form-group">
               <label>
@@ -79,7 +74,6 @@
               <tr>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Stock</th>
               </tr>
             </thead>
 
@@ -88,7 +82,6 @@
               <tr>
                 <td><%=d.name%></td>
                 <td>Rp <%=d.price%></td>
-                <td><%=d.stock%></td>
                 <td>
                   <a href="/goods/edit/<%=d.id%>">Edit</a>
                   <a href="/goods/delete/<%=d.id%>"onclick="return confirm (' Delete this ?? ')">Delete</a>

@@ -81,7 +81,7 @@ router.post('/pay', function(req, res, next) {
         credit: card.credit - totalPrice
       })
       .then(cardUpdated => {
-        res.session.cart = [];
+        req.session.cart = [];
         res.render('payment-success', { card: cardUpdated });
       })
       .catch(err => console.log(err));
