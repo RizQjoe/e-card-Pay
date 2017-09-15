@@ -41,16 +41,13 @@ h1#page-header {
   overflow: scroll;
 }
 
-#right-section #check-out span {
+#check-out span {
   float: left;
 }
 
-#right-section #check-out {
+#check-out {
   margin-top: 1em;
   color: white;
-}
-
-#right-section #check-out{
   float: right;
 }
 
