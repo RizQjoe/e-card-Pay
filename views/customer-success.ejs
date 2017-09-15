@@ -1,0 +1,62 @@
+<html>
+    
+    <%- include head %>
+    
+      <body>
+
+        <div class="container">
+
+          <%- include page-header %>
+          
+          <div class="row">
+
+            <div class="col-lg-12">
+              
+              <%- include bc-add-customer.ejs %>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+    
+            <div class="col-lg-4"></div>
+
+            <div class="col-lg-4" id="customer-success">
+      
+              <h2 class="text-success">Customer Added!</h2>
+      
+              <table class="table table-responsive">
+                <tbody>
+                  <tr>
+                    <td><span>Name:</span></td>
+                    <td><%= customer.name %></td>
+                  </tr>
+                  <tr>
+                    <td><span>Email:</span></td>
+                    <td><%= customer.email %></td>
+                  </tr>
+                  <tr>
+                    <td><span>Card Number:</span></td>
+                    <td><%= card.number %></td>
+                  </tr>
+                  <tr>
+                    <td><span>Initial Credit:</span></td>
+                    <td><%= card.credit %></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+            <div class="col-lg-4"></div>
+
+          </div>
+
+        </div>
+
+      </body>
+    
+      <%- include script %>
+    
+    </html>

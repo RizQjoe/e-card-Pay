@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+  <%- include head %>
+
+  <body>
+
+    <div class="container">
+      
+      <%- include page-header %>
+      
+      <!-- row content -->
+      <div class="row">
+
+        <div class="col-lg-8" id="left-section">
+
+          <div class="row">
+
+            <div class="col-lg-4">
+              <div class="card">
+                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Mineral Water</h4>
+                  <p class="card-text">Rp 12.000</p>
+                  <a href="/add-to-cart/1/mineral water/12000" class="btn btn-primary">add to cart</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card">
+                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-title">Potato Snack</p>
+                  <p class="card-text">Rp 25.000</p>
+                  <a href="/add-to-cart/1/potato snack/25000" class="btn btn-primary">add to cart</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card">
+                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Chocolate Bar</h4>
+                  <p class="card-text">Rp 20.000</p>
+                  <a href="/add-to-cart/2/chocolate bar/20000" class="btn btn-primary">add to cart</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card">
+                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Mint Gum</h4>
+                  <p class="card-text">Rp 17.000</p>
+                  <a href="/add-to-cart/1/mint gum/17000" class="btn btn-primary">add to cart</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4" id="right-section">
+
+          <h2>Cart (<%= totalInCart %>)</h2> 
+
+          <hr>  
+          <%
+          let paymentTotal = 0;
+          %>
+          <ul class="list-group">
+            <%
+            inCart.forEach(item => {
+              paymentTotal += item.price * item.total;
+            %>
+            <li class="list-group-item" id="item"><span id="item-name"><%= item.name %> (<%= item.total %> x <%= item.price %>)</span><span id="item-total">Rp <%- item.price * item.total %></span></li>
+            <%
+            })
+            %>
+            <li class="list-group-item list-group-item-secondary" id="item">
+              <span id="total-label" class="text-info">Total </span>
+              <span id="total-number" class="text-info">Rp <%- paymentTotal %></span>
+            </li>
+          </ul>
+
+          <a href="/checkout" class="btn btn-warning" id="check-out">check out</a>
+
+        </div>
+        
+      </div>
+      <!-- row content end -->
+    </div>
+
+  </body>
+  
+   <%- include script %>
+
+  </html>

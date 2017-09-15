@@ -99,6 +99,20 @@ input#add-member {
   font-size: 1.2em;
 }
 
+.card-img-top {
+  height: 8em;
+  overflow: hidden;
+}
+
+div#customer-success table {
+  margin-top: 2em;
+}
+
+div#customer-success table tbody tr td span {
+  font-weight: bold;
+  float: right;
+}
+
 
 
 

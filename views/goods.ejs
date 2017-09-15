@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+  <%- include head %>
+
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <h1 class="text-success" style="text-align:center;">Goods Management</h1>
+          
+          <hr>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        
+        <div class="col-lg-4"></div>
+
+        <div class="col-lg-4">
+
+          <form class="" action="/goods/add" method="POST">
+
+            <div class="form-group">
+              <label>
+                Name
+              </label>
+              <input type="text" name="name" placeholder="Good's Name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label>
+                Price
+              </label>
+              <input type="text" name="price" placeholder="Good's Price" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>
+                Stock
+              </label>
+              <input type="text" name="stock" placeholder="Good's Initial Stock" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>
+                Image Link
+              </label>
+              <input type="text" name="img_link" placeholder="Good's Image Link" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-lg btn-success">Submit</button>
+            </div>
+            
+          </form>
+
+        </div>
+
+        <div class="col-lg-4"></div>
+
+      </div>
+
+      <div class="row" style="margin-top:3em;">
+
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8">
+
+          <table class="table table-responsive table-hover">
+
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% {data.forEach( d => { %>
+              <tr>
+                <td><%=d.name%></td>
+                <td>Rp <%=d.price%></td>
+                <td><%=d.stock%></td>
+                <td>
+                  <a href="/goods/edit/<%=d.id%>">Edit</a>
+                  <a href="/goods/delete/<%=d.id%>"onclick="return confirm (' Delete this ?? ')">Delete</a>
+                </td>
+              </tr>
+              <% })}%>
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="col-lg-2"></div>
+
+      </div>
+
+    </div>     
+        
+  </body>
+  <%- include script %>
+</html>

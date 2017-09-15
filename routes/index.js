@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models =  require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,11 +10,15 @@ router.get('/', function(req, res, next) {
               .map(item => item.total)
               .reduce((t,c) => parseInt(c)+t, 0);
   } 
-  res.render('index', { inCart: (req.session.cart ? req.session.cart : []), totalInCart: total });
-});
 
-router.get('/top-up', function(req, res, next) {
-  res.render('top-up');
+  models.Goods.findAll()
+  .then(goods => {
+    res.render('index', { inCart: (req.session.cart ? req.session.cart : []), totalInCart: total, goods: goods });
+  })
+  .catch(err => {
+    console.log(err)
+  })
+  
 });
 
 router.get('/add-customer', function(req, res, next) {

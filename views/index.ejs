@@ -16,49 +16,24 @@
 
           <div class="row">
 
+            <%
+            goods.forEach(g => {
+            %>
+            
             <div class="col-lg-4">
               <div class="card">
-                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
+                <img class="card-img-top" src="<%= g.img_link %>" alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">Mineral Water</h4>
-                  <p class="card-text">Rp 12.000</p>
-                  <a href="/add-to-cart/1/mineral water/12000" class="btn btn-primary">add to cart</a>
+                  <h4 class="card-title"><%= g.name %></h4>
+                  <p class="card-text">Rp <%= g.price %></p>
+                  <a href="/add-to-cart/<%= g.id %>/<%= g.name %>/<%= g.price %>" class="btn btn-primary">add to cart</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4">
-              <div class="card">
-                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-title">Potato Snack</p>
-                  <p class="card-text">Rp 25.000</p>
-                  <a href="/add-to-cart/1/potato snack/25000" class="btn btn-primary">add to cart</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="card">
-                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Chocolate Bar</h4>
-                  <p class="card-text">Rp 20.000</p>
-                  <a href="/add-to-cart/2/chocolate bar/20000" class="btn btn-primary">add to cart</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="card">
-                <img class="card-img-top" src="https://media.giphy.com/media/BdwcUiwMX5wNq/giphy.gif" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Mint Gum</h4>
-                  <p class="card-text">Rp 17.000</p>
-                  <a href="/add-to-cart/1/mint gum/17000" class="btn btn-primary">add to cart</a>
-                </div>
-              </div>
-            </div>
+            <%
+            })
+            %>
 
           </div>
 

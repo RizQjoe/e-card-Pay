@@ -4,12 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     number: DataTypes.INTEGER,
     credit: DataTypes.INTEGER,
     CustomerId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Card.associate = function(models) {
+    Card.belongsTo(models.Customer);
+  }
+
   return Card;
 };
