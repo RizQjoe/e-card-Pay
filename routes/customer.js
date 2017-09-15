@@ -1,7 +1,7 @@
 const express = require ('express')
 const router = express.Router()
 const Model = require('../models')
-
+var sendmail = require('../helper/sendmail');
 
 router.get('/', function(req, res){
   Model.Customer.findAll({
@@ -12,8 +12,6 @@ router.get('/', function(req, res){
   })
 })
 
-
-/*              >> Add <<                  */
 
 router.get('/add', function(req, res){
   res.render('addCustomer',{err: false})
@@ -36,14 +34,24 @@ router.post('/add', function(req, res){
         card: card
       }));
 
-      if (req.query.from === 'warung') {
-        return res.render('customer-success', {
-          customer: cust,
-          card: card
-        });
-      } else {
-        res.redirect('/customer')
-      }
+      sendmail(
+        cust.name, 
+        cust.email, 
+        'Welcome to Warung Card Pay',
+        `Welcome ${cust.name},\nYour card number is ${card.number}\nYour credit balance is ${card.credit}\nHappy shopping!`,
+        function() {
+          if (req.query.from === 'warung') {
+            return res.render('customer-success', {
+              customer: cust,
+              card: card
+            });
+          } else {
+            res.redirect('/customer')
+          }
+        }
+      );
+
+      
       
     })
     .catch(err => console.log(err))

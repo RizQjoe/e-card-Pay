@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models =  require('../models');
+var sendmail = require('../helper/sendmail');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -82,7 +83,15 @@ router.post('/pay', function(req, res, next) {
       })
       .then(cardUpdated => {
         req.session.cart = [];
-        res.render('payment-success', { card: cardUpdated });
+        sendmail(
+          cardUpdated.Customer.name, 
+          cardUpdated.Customer.email, 
+          'Transaction Success',
+          `Thank you ${cardUpdated.Customer.name} for shopping with us, your last balance is Rp. ${cardUpdated.credit}`,
+          function() {
+            res.render('payment-success', { card: cardUpdated });
+          }
+        )
       })
       .catch(err => console.log(err));
     } else {
@@ -115,5 +124,7 @@ function totalPriceInCart(cart) {
   }
   return totalPrice;
 }
+
+
 
 module.exports = router;
